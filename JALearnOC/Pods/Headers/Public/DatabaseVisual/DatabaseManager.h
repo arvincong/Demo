@@ -1,0 +1,1 @@
+../../../DatabaseVisual/DatabaseManager/DatabaseManager.h

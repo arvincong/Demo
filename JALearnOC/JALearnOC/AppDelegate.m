@@ -26,9 +26,6 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    NSLog(@"this account id is %@",[[ACAccount  new] identifier]);
-    NSLog(@"this new uuid is %@",[FCUUID uuidForDevice]);
-    
     _window.backgroundColor = KNormalBgColor;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     

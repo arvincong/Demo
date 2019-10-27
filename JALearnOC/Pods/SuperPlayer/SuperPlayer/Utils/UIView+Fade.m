@@ -7,6 +7,9 @@
 
 #import "UIView+Fade.h"
 #import <objc/runtime.h>
+#import "SPDefaultControlView.h"
+#import "SuperPlayerView.h"
+#import "UIView+MMLayout.h"
 
 
 @implementation UIView (Fade)
@@ -31,6 +34,12 @@
         self.hidden = NO;
     } completion:^(BOOL finished) {
 
+        if([self isKindOfClass:[SPDefaultControlView class]]){
+            SPDefaultControlView *view = (SPDefaultControlView *)self;
+            view.isShowStatusBar = NO;
+            SuperPlayerView *playerView = (SuperPlayerView *)view.superview;
+            [playerView.fatherView.mm_viewController setNeedsStatusBarAppearanceUpdate];
+        }
     }];
     return self;
 }
@@ -43,7 +52,12 @@
             [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 self.hidden = YES;
             } completion:^(BOOL finished) {
-                
+                if([self isKindOfClass:[SPDefaultControlView class]]){
+                     SPDefaultControlView *view = (SPDefaultControlView *)self;
+                     view.isShowStatusBar = YES;
+                     SuperPlayerView *playerView = (SuperPlayerView *)view.superview;
+                     [playerView.fatherView.mm_viewController setNeedsStatusBarAppearanceUpdate];
+                 }
             }];
             [self cancelFadeOut];
         }

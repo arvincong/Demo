@@ -77,4 +77,7 @@
 @property (nonatomic, strong) UIButton               *pointJumpBtn;
 
 @property BOOL isLive;
+
+@property(nonatomic,assign)BOOL isShowStatusBar;
+
 @end

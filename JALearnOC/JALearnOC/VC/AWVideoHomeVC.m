@@ -142,16 +142,16 @@
 
 - (__kindof UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index
 {
-    if(index == 0){
-        
+    
+    NSString *currentTitle = _titlesArray[index];
+    if([currentTitle isEqualToString:@"动漫"]){
         return [AWPlayerListVC new];
-    }else if(index == 1){
-        
+    }else if ([currentTitle isEqualToString:@"美剧"]){
         return [AWMeiDramaVC new];
-        
-    }else{
-        return [AWMovieVC new];
+    }else if ([currentTitle isEqualToString:@"电影"]){
+         return [AWMovieVC new];
     }
+    abort();
 }
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForMenuView:(WMMenuView *)menuView {

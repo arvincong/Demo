@@ -75,12 +75,13 @@
     [self.topImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.equalTo(self);
         make.top.equalTo(self.mas_top).offset(0);
-        make.height.mas_equalTo(50);
+        make.height.mas_equalTo(70);
     }];
     
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.topImageView.mas_leading).offset(5);
-        make.top.equalTo(self.topImageView.mas_top).offset(3);
+        //make.top.equalTo(self.topImageView.mas_top).offset(3);
+        make.top.equalTo(self.topImageView.mas_top).offset([[UIApplication sharedApplication] statusBarFrame].size.height);
         make.width.height.mas_equalTo(40);
     }];
     
